@@ -44,7 +44,7 @@ type the following and hit `Enter`:
 ```
 
 ### Implementation
-You will end up in this setup with a mirrored site; one static html site in you're "houtje-touwtje"-root-folder, one dynamic php site in the php-folder. Supposedly the static-files are the ones that you gonna upload to the remote server. Or with git-hub.com/gh-pages the ones you push to origin.  
+You will end up in this setup with a mirrored site; one static html site in you're `houtje-touwtje-root`-folder, one dynamic php site in the `php`-folder. Supposedly the static-files are the ones one wants to upload to the remote server. (Or with git-hub.com/gh-pages to push to origin).
 
 ### Resources
 * [Static Site Generators](http://blog.millermedeiros.com/static-site-generators/)
