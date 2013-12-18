@@ -43,7 +43,7 @@ type the following and hit `Enter`:
 ./io.sh
 ```
 
-### Implementation
+### Deployment
 You will end up in this setup with a mirrored site; one static html site in you're `houtje-touwtje-root`-folder, one dynamic php site in the `php`-folder. Supposedly the static-files are the ones one wants to upload to the remote server. (Or with git-hub.com/gh-pages to push to origin).
 
 ### Resources

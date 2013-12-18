@@ -44,10 +44,13 @@ a {
 .nav-item {
   list-style: none;
 }
+.nav-link:hover,
 .nav-item--current .nav-link  {
   text-decoration: none;
   background-color: salmon;
   color: #fff;
+}
+.nav-item--current .nav-link  {
   pointer-events: none;
   cursor: default;
 }
