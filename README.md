@@ -1,6 +1,6 @@
 ## Houtje Touwtje
 
-Minimal DIY Static Site Generator that outputs PHP to static html-pages. 
+Minimal DIY Static Site Generator that outputs PHP to static html-pages: [see generated static site from this repo](http://atelierbram.github.io/houtje-touwtje/)
 
 The main benefit of doing webdevelopment like this is a [simple, low-fi way](http://arthur.van-dam.net/2005/06/houtje-touwtje) - for using templating and variables, here with just PHP. It can be suitable for smaller websites like between three and twenty pages or so.
 
