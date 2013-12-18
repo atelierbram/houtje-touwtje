@@ -37,6 +37,19 @@ p, h2, h3 {
 a {
   color: crimson;
 }
+.nav-link {
+  display: block;
+  padding: .25em;
+}
+.nav-item {
+  list-item: none;
+}
+.nav-item--current .nav-link  {
+  text-decoration: none;
+  background-color: salmon;
+  pointer-events: none;
+  cursor: default;
+}
 h2 a {
   display: block;
   padding: .25em .5em ,25em 0;
