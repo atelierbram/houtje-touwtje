@@ -1,3 +1,4 @@
+<?php ob_start('compress_aside'); ?>
    <aside class="sidebar">
 
     <h2>Sidebar Content</h2>
@@ -9,5 +10,11 @@
   <li>item 5</li>
 </ul>
 
-  </aside>
+  </aside> 
+ <?php ob_end_flush(); function compress_aside($buffer) {
+  $search = array("/>[[:space:]]+/", "/[[:space:]]+</");
+  $replace = array(">","<");
+  return preg_replace($search, $replace, $buffer);
+}
+?>
 

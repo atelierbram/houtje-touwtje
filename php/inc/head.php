@@ -1,21 +1,4 @@
-<?php ?><!doctype html>
-
-<!--
-  HTML5 Reset: https://github.com/murtaugh/HTML5-Reset
-  Free to use
--->
-
-<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" <?php if ($thisLang!="") echo " lang=\"$thisLang \" "; ?>>
-
-<!--<![endif]-->
-<!-- the "no-js" class is for Modernizr or Buoy http://cferdinandi.github.io/buoy/ . -->
-
-
-<head <?php if ($thisWebsite!="") echo "id=\"$thisWebsite\""; ?>>
+<?php echo "<!doctype html>"?><!-- HTML5 Reset: https://github.com/murtaugh/HTML5-Reset Free to use --><!--[if lt IE 7 ]><html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"><![endif]--><!--[if IE 7 ]><html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"><![endif]--><!--[if IE 8 ]><html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]--><!--[if IE 9 ]><html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]--><!--[if gt IE 9]><!--><html class="no-js" <?php if ($thisLang!="") echo "lang=\"$thisLang\""; ?>><!--<![endif]--><!-- the "no-js" class is for Modernizr or Buoy http://cferdinandi.github.io/buoy/ . --><head <?php if ($thisWebsite!="") echo "id=\"$thisWebsite\""; ?>><?php ob_start('compress_head'); ?>
 
   <meta charset="utf-8">
 
@@ -34,28 +17,15 @@
 
   <meta name="Copyright" content="<?php if ($thisOrg!="") echo "$thisOrg"; ?>" />
 
-  <!--  Mobile Viewport Fix
-  http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
-  device-width : Occupy full width of the screen in its current orientation
-  initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
-  maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
-  -->
-  <!-- Uncomment to use; use thoughtfully!
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  -->
+  <!--  Mobile Viewport Fix http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag device-width : Occupy full width of the screen in its current orientation initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width -->
+  <!-- Uncomment to use; use thoughtfully!  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 
   <!-- Iconifier might be helpful for generating favicons and touch icons: http://iconifier.net -->
 <link rel="shortcut icon" href="<?php echo $rootUrl ?>assets/img/ui/favicon.ico" type="image/x-icon" />
-  <!-- This is the traditional favicon.
-     - size: 16x16 or 32x32
-     - transparency is OK -->
+  <!-- This is the traditional favicon.  - size: 16x16 or 32x32 - transparency is OK -->
 
 <link rel="apple-touch-icon" href="<?php echo $rootUrl ?>assets/img/ui/apple-touch-icon.png" />
-  <!-- The is the icon for iOS's Web Clip and other things.
-     - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for retina display (IMHO, just go ahead and use the biggest one)
-     - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
-     - Transparency is not recommended (iOS will put a black BG behind the icon) -->
-
+  <!-- The is the icon for iOS's Web Clip and other things.  - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for retina display (IMHO, just go ahead and use the biggest one) - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png - Transparency is not recommended (iOS will put a black BG behind the icon) -->
   <!-- concatenate and minify for production -->
   <link rel="stylesheet" href="<?php echo $rootUrl ?>assets/css/style.css" />
 
@@ -87,7 +57,7 @@
 <!-- http://gomakethings.com/ditching-jquery-for-vanilla-js/ -->
  <script>if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) { document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; }</script>
 
- </head> 
+ </head>
 <body <?php if ($thisType!="") echo "class=\"$thisType\""; ?>>
  <div <?php if ($thisPage!="") echo "class=\"$thisPage wrapper\""; ?>><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
 
@@ -95,5 +65,9 @@
 
     <h1><a href="<?php echo $rootUrl ?><?php echo $thisUrl ?>"><?php if ($thispageTitle!="") echo $thispageTitle ;?></a></h1>
   </header>
-
-<?php ?>
+<?php ob_end_flush(); function compress_head($buffer) {
+  $search = array("/>[[:space:]]+/", "/[[:space:]]+</");
+  $replace = array(">","<");
+  return preg_replace($search, $replace, $buffer);
+}
+?>

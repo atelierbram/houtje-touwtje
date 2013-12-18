@@ -16,6 +16,7 @@ include '../inc/config.php';
 include '../inc/head.php';
 include '../inc/nav.php';
 ?>
+<?php ob_start('compress_article'); ?>
 
   <article class="article">
 
@@ -28,43 +29,20 @@ include '../inc/nav.php';
     <p>Vestibulum lacus erat, volutpat vel dignissim at, fringilla ut felis.</p>
 
   </article>
-
-<?php
+<?php ob_end_flush(); function compress_article($buffer) {
+  $search = array("/>[[:space:]]+/", "/[[:space:]]+</");
+  $replace = array(">","<");
+  return preg_replace($search, $replace, $buffer);
+}
 include '../inc/aside.php';
 include '../inc/footer.php';
 ?>
 
 </div><!-- ./wrapper -->
 
-<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
-     http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.  http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-<!-- <script>window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>\x3C/script>")</script> -->
-
-<!-- this is where we put our custom functions -->
-<!-- don't forget to concatenate and minify if needed -->
-<!-- <script src="assets/js/functions.js"></script> -->
-
-<!-- Asynchronous google analytics; this is the official snippet.
-   Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
-
-<script>
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
--->
-
+<?php include '../inc/script.php'; ?>
 </body>
 </html><?php ?>
