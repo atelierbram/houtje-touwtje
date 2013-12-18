@@ -42,11 +42,12 @@ a {
   padding: .25em;
 }
 .nav-item {
-  list-item: none;
+  list-style: none;
 }
 .nav-item--current .nav-link  {
   text-decoration: none;
   background-color: salmon;
+  color: #fff;
   pointer-events: none;
   cursor: default;
 }
