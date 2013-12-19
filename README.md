@@ -55,7 +55,7 @@ chmod 755 io.sh
 ```
 
 ### Deployment
-You will end up in this setup with a mirrored site; one static html site in your `“houtje-touwtje”-root`-folder, one dynamic php site in the `php`-folder. Presumably the static-files are the ones that going to be uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).
+You will end up in this setup with a mirrored site; one static html site in your `“houtje-touwtje”-root`-folder, one dynamic php site in the `php`-folder. Presumably the static-files are the ones that going to be (`FTP`) uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).
 
 ### Final Thoughts
 When just wanting to regenerate one page, an alternative way to do that in the terminal besides `curl`, is with `PHP CLI`:
