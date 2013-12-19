@@ -55,7 +55,7 @@ chmod 755 io.sh
 ```
 
 ### Deployment
-You will end up in this setup with a mirrored site; one static html site in you’re `“houtje-touwtje”-root`-folder, one dynamic php site in the `php`-folder. Presumably the static-files are the ones that going to be uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).
+You will end up in this setup with a mirrored site; one static html site in your `“houtje-touwtje”-root`-folder, one dynamic php site in the `php`-folder. Presumably the static-files are the ones that going to be uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).
 
 ### Final Thoughts
 When just wanting to regenerate one page, an alternative way to do that in the terminal besides `curl`, is with `PHP CLI`:
@@ -69,6 +69,8 @@ Two ways to repeat the previous command from the command line quickly:
 1. Use the up arrow to view the previous command and press `enter` to execute it.
 2. Type `!!` and press `enter`
 
+When one doesn’t want the [gzip-encoding that takes care of compression of the html-output](http://perishablepress.com/fast-effective-php-compression/), (for instance when using a lot of `pre` tags) just move, or remove the [ob_gzhandler](http://www.php.net/manual/en/function.ob-gzhandler.php).
+
 ### Resources
 * [Static Site Generators](http://blog.millermedeiros.com/static-site-generators/)
 * [writing a file in bash script](http://stackoverflow.com/questions/14637284/writing-a-file-in-bash-script)
@@ -76,6 +78,8 @@ Two ways to repeat the previous command from the command line quickly:
 * [php command line](http://www.sitepoint.com/php-command-line-1/)
 * [php cli tutorial](http://www.php-cli.com/php-cli-tutorial.shtml)
 * [linux command line history](http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/)
+* [php output buffers](http://davidwalsh.name/php-output-buffers)
+* [Fast, Effective PHP Compression](http://perishablepress.com/fast-effective-php-compression/)
 
 ### License
 Copyright (c) 2013 [Bram de Haan](http://atelierbramdehaan.nl/)
