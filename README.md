@@ -43,7 +43,7 @@ type the following and hit `Enter`:
 ```bash
 ./io.sh
 ```
-Be sure though that the shell script `io.sh` has the right permissions set. On the UNIX base systems you can do this with:
+Be sure though that the shell script `io.sh` has the right permissions set. On UNIX base systems you can do this with:
 
 ```bash
 chmod +x io.sh
