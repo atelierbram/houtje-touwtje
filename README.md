@@ -2,12 +2,11 @@
 
 Minimal DIY Static Site Generator that outputs PHP to static html-pages: [see generated static site from this repo](http://atelierbram.github.io/houtje-touwtje/)
 
-The main benefit of doing web-development like this is a [simple, low-fi way](http://arthur.van-dam.net/2005/06/houtje-touwtje) - for using templating and variables, here with just PHP. It can be suitable for smaller websites like between three and twenty pages or so.
+The main benefit of doing web-development like this is being able to have a [simple, low-fi implementation](http://arthur.van-dam.net/2005/06/houtje-touwtje) - of templating, here with just PHP. It can be appropriate for smaller websites like between three and twenty pages, or so.
 
-It consists of two parts:
+1. It comes with a bash script named `io.sh`, that uses `curl` to output static HTML-files from PHP-files.
 
-1. a bash script named `io.sh`, that uses `curl` to output static html files from php files
-2. a command that invokes the bash script
+2. It wants the developer to execute a command that invokes this bash script
 
 ```bash
 #!/bin/bash
