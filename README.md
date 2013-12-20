@@ -2,34 +2,59 @@
 
 Minimal DIY Static Site Generator that outputs PHP to static html-pages: [see generated static site from this repo](http://atelierbram.github.io/houtje-touwtje/)
 
-The main benefit of doing web-development like this is being able to have a [simple, low-fi implementation](http://arthur.van-dam.net/2005/06/houtje-touwtje) - of templating, here with just PHP. It can be appropriate for smaller websites like between three and twenty pages, or so.
+Main benefit of doing web-development like this is being able to have a [simple, low-fi implementation](http://arthur.van-dam.net/2005/06/houtje-touwtje) of templating, here with just PHP. It can be appropriate for smaller websites like between three and twenty pages, or so.
 
-1. It comes with a bash script named `io.sh`, that uses `curl` to output static HTML-files from PHP-files.
-
-2. It wants the developer to execute a command that invokes this bash script
+* The bash script named `io.sh`, is what makes it happen: `curl` to output static HTML-files from PHP-files, which needs to be executed from the terminal.
 
 ```bash
-#!/bin/bash
+#!/bin/bash -x
 
 # write to file
 write_to_file()
 {
 
- curl "http://localhost/~www/houtje-touwtje/php/index.php" >> "../index.html"
- curl "http://localhost/~www/houtje-touwtje/php/lab/index.php" >> "../lab/index.html"
- curl "http://localhost/~www/houtje-touwtje/php/about/index.php" >> "../about/index.html"
- curl "http://localhost/~www/houtje-touwtje/php/contact/index.php" >> "../contact/index.html"
+ curl "http://localhost/~www/houtje-touwtje/php/index.php" > "../index.html"
+ curl "http://localhost/~www/houtje-touwtje/php/lab/index.php" > "../lab/index.html"
+ curl "http://localhost/~www/houtje-touwtje/php/about/index.php" > "../about/index.html"
+ curl "http://localhost/~www/houtje-touwtje/php/contact/index.php" > "../contact/index.html"
  }
 
 # execute it
 write_to_file
 ```
+Be sure though that the shell scripts have the right permissions set. On UNIX base systems you can do this with:
 
+```bash
+chmod +x io.sh
+```
+or
+
+```bash
+chmod 755 io.sh
+```
+ 
 ### Configuration
 Rename the directory names in `io.sh` to resemble the ones on your own machine. Each time one creates a new page, add that link to `io.sh`, and note that the first path to the php files should be absolute url’s.
 
 Also edit at least `config.php` _(`php/inc` folder)_ and the other global variables on top of each page, to resemble your environment and preferences.
-Also **before generating for the last time - before uploading to the remote server**, change the path to the root folder in `config.php` _(maybe create a `config-local.php` and `config-deploy.php` ?)_ , for otherwise the absolute paths to the assets are wrong.
+Also **before generating for the last time - before uploading to the remote server**, change the path to the root folder in `config.php`, for otherwise the absolute paths to the assets are wrong. You can automate this a bit by executing a shell script for this, it simply renames `config-external.php` to `config.php` and likewise from `config-local.php`. You can do it like this: 
+
+go to `inc` folder 
+```bash
+cd php/inc
+```
+
+execute shell script to change the root directory to the external server paths:
+
+```bash
+./external-config.sh
+```
+
+execute shell script to change the root directory back to the local development environment:
+
+```bash
+./local-config.sh
+```
 
 ### Generate
 Now in the terminal navigate to the folder containing the php folder
@@ -42,16 +67,6 @@ type the following and hit `Enter`:
 ```bash
 ./io.sh
 ```
-Be sure though that the shell script `io.sh` has the right permissions set. On UNIX base systems you can do this with:
-
-```bash
-chmod +x io.sh
-```
-or
-
-```bash
-chmod 755 io.sh
-```
 
 ### Deployment
 You will end up in this setup with a mirrored site; one static html site in your `“houtje-touwtje”-root`-folder, one dynamic php site in the `php`-folder. Presumably the static-files are the ones that going to be (`FTP`) uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).
@@ -60,7 +75,7 @@ You will end up in this setup with a mirrored site; one static html site in your
 When just wanting to regenerate one page, an alternative way to do that in the terminal besides `curl`, is with `PHP CLI`:
 
 ```bash
-php -f about/index.php > ../about/index.html ;
+php -f about/index.php > ../about/index.html
 ```
 
 Two ways to repeat the previous command from the command line quickly:
