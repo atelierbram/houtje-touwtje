@@ -31,8 +31,11 @@ h2, h3 {
   font-family: AvenirNextCondensed-DemiBold, "Lucida Grande", Corbel, "Trebuchet Ms", sans-serif;
   text-transform: uppercase;
 }
-p, h2, h3 {
+p, h2 {
   padding: .5em 0;
+}
+h3 {
+  padding: .5em 0 0;
 }
 a {
   color: crimson;
@@ -63,8 +66,8 @@ pre {
   white-space: pre-wrap;
   padding: 1em;
   margin-bottom: 1em;
-  background-color: #222;
-  color: #fff;
+  /* background-color: #222; */
+  /* color: #fff; */
 }
 p {
   max-width: 30em;
@@ -82,3 +85,6 @@ footer a {
   padding: .25em;
 }
 
+pre[class*="language-"] { 
+  margin: 1em 0 !important;
+}
