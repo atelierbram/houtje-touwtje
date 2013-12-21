@@ -21,21 +21,23 @@
   <!-- Uncomment to use; use thoughtfully!  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 
   <!-- Iconifier might be helpful for generating favicons and touch icons: http://iconifier.net -->
-<link rel="shortcut icon" href="<?php echo $rootUrl ?>assets/img/ui/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $rootUrl ?>/assets/img/ui/favicon.ico" type="image/x-icon" />
   <!-- This is the traditional favicon.  - size: 16x16 or 32x32 - transparency is OK -->
 
-<link rel="apple-touch-icon" href="<?php echo $rootUrl ?>assets/img/ui/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="<?php echo $rootUrl ?>/assets/img/ui/apple-touch-icon.png" />
   <!-- The is the icon for iOS's Web Clip and other things.  - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for retina display (IMHO, just go ahead and use the biggest one) - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png - Transparency is not recommended (iOS will put a black BG behind the icon) -->
   <!-- concatenate and minify for production -->
-  <link rel="stylesheet" href="<?php echo $rootUrl ?>assets/css/style.css" />
+  <link rel="stylesheet" href="<?php echo $rootUrl ?>/assets/css/style.css" />
+
+ <?php if ($thisPage=="homepage") echo "<link rel=\"stylesheet\" href=\"$rootUrl/assets/css/base16-atelierlakeside.light.css\" />" ?>
 
   <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
-  <!-- <script src="<?php// echo $rootUrl ?>assets/js/prefixfree.min.js"></script> -->
+  <!-- <script src="<?php// echo $rootUrl ?>/assets/js/prefixfree.min.js"></script> -->
 
   <!-- This is an un-minified, complete version of Modernizr.
      Before you move to production, you should generate a custom build that only has the detects you need. -->
 
-  <!-- <script src="<?php// echo $rootUrl ?>assets/js/modernizr-2.7.0.dev.js"></script> -->
+  <!-- <script src="<?php// echo $rootUrl ?>/assets/js/modernizr-2.7.0.dev.js"></script> -->
 
   <!-- Application-specific meta tags -->
   <!-- Windows 8 -->
