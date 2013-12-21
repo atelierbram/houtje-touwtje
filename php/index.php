@@ -19,13 +19,10 @@ include 'inc/nav.php';
 <?php // ob_start('compress_article'); ?>
   <article class="article">
 
-<p>Minimal DIY Static Site Generator that outputs PHP to static html-pages:</p>
+<p class="intro">Minimal DIY Static Site Generator that outputs PHP to static html-pages.</p>
 
 <p>Main benefit of doing web-development like this is being able to have a <a href="http://arthur.van-dam.net/2005/06/houtje-touwtje">simple, low-fi implementation</a> of templating, here with just PHP. It can be appropriate for smaller websites with a size between three to twenty pages or so.</p>
-
-<ul>
-<li>The bash script named <code>io.sh</code>, is what makes it happen: <code>curl</code> to output static HTML-files from PHP-files, which needs to be executed from the terminal.</li>
-</ul>
+<p>The bash script named <code>io.sh</code>, is what makes it happen: <code>curl</code> to output static HTML-files from PHP-files, which needs to be executed from the terminal.</p>
 
 <pre class="language-bash"><code class="language-bash">
 #!/bin/bash -x
@@ -33,10 +30,10 @@ include 'inc/nav.php';
 # write to file
 write_to_file()
 {
-  curl "http://localhost/~www/houtje-touwtje/php/index.php" &gt; "../index.html"
-  curl "http://localhost/~www/houtje-touwtje/php/lab/index.php" &gt; "../lab/index.html"
-  curl "http://localhost/~www/houtje-touwtje/php/about/index.php" &gt; "../about/index.html"
-  curl "http://localhost/~www/houtje-touwtje/php/contact/index.php" &gt; "../contact/index.html"
+curl "http://localhost/~www/houtje-touwtje/php/index.php" &gt; "../index.html"
+curl "http://localhost/~www/houtje-touwtje/php/lab/index.php" &gt; "../lab/index.html"
+curl "http://localhost/~www/houtje-touwtje/php/about/index.php" &gt; "../about/index.html"
+curl "http://localhost/~www/houtje-touwtje/php/contact/index.php" &gt; "../contact/index.html"
 }
 
 # execute it
@@ -119,18 +116,6 @@ php -f about/index.php &gt; ../about/index.html
 
 <p>When one doesn’t want the <a href="http://perishablepress.com/fast-effective-php-compression/">gzip-encoding that takes care of compression of the html-output</a>, (for instance when using a lot of <code>pre</code> tags) just move, or remove the <a href="http://www.php.net/manual/en/function.ob-gzhandler.php">ob_gzhandler</a>.</p>
 
-<h3>Resources</h3>
-
-<ul>
-<li><a href="http://blog.millermedeiros.com/static-site-generators/">Static Site Generators</a></li>
-<li><a href="http://stackoverflow.com/questions/14637284/writing-a-file-in-bash-script">writing a file in bash script</a></li>
-<li><a href="http://www.tldp.org/LDP/abs/html/io-redirection.html">Advanced Bash-Scripting Guide</a></li>
-<li><a href="http://www.sitepoint.com/php-command-line-1/">php command line</a></li>
-<li><a href="http://www.php-cli.com/php-cli-tutorial.shtml">php cli tutorial</a></li>
-<li><a href="http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">linux command line history</a></li>
-<li><a href="http://davidwalsh.name/php-output-buffers">php output buffers</a></li>
-<li><a href="http://perishablepress.com/fast-effective-php-compression/">Fast, Effective PHP Compression</a></li>
-</ul>
   </article>
 
 <?php // ob_end_flush(); function compress_article($buffer) {
@@ -138,7 +123,9 @@ php -f about/index.php &gt; ../about/index.html
 //  $replace = array(">","<");
 //  return preg_replace($search, $replace, $buffer);
 // }
-// include 'inc/aside.php';
+include 'inc/aside.php';
+
+// if ($thisPage="homepage") include 'mod-resources'; 
 include 'inc/footer.php';
 ?></div><!-- ./wrapper -->
 

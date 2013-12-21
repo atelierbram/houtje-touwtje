@@ -2,8 +2,9 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* outline: 1px dotted grey; */
 }
 .js * {
   /* outline: 1px dotted salmon; */
@@ -12,7 +13,7 @@
   background: yellow;
 }
 html {
-  background-color: #ddd;
+  background-color: #c1e4f6;
 }
 .no-js {
   background: magenta;
@@ -20,15 +21,40 @@ html {
 body {
   font: 100%/1.375 AvenirNext-Regular, "Lucida Grande", Corbel, "Trebuchet Ms", sans-serif;
   width: 80%;
-  max-width: 38em;
+  max-width: 52em;
   margin: 0 auto;
-  padding: 0 2.5em 4em 2.5em;
+  /* padding: 0 2.5em 4em 2.5em; */
+  color: #161b1d;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #7ea2b4;
   border-top-width: 0;
 }
-h2, h3 {
+.wrapper {
+  overflow: auto;
+  padding: 0 2.5em 4em;
+}
+.header {
+  min-height: 4.75em;
+  padding-top: 2em;
+}
+.footer {
+  float: left;
+  width: 100%;
+  clear: both;
+} 
+h1 {
+  -webkit-transform: translateY(.5em);
+  -moz-transform: translateY(.5em);
+  -ms-transform: translateY(.5em);
+  transform: translateY(.5em);
+}
+h1 a {
+  text-decoration: none;
+}
+h1, h2, h3, .intro {
   font-family: AvenirNextCondensed-DemiBold, "Lucida Grande", Corbel, "Trebuchet Ms", sans-serif;
+}
+h2, h3 {
   text-transform: uppercase;
 }
 p, h2 {
@@ -36,22 +62,36 @@ p, h2 {
 }
 h3 {
   padding: .5em 0 0;
+  margin: .5em 0 -.25em 0;
 }
 a {
-  color: crimson;
+  color: #d22d72;
 }
-.nav-link {
-  display: block;
-  padding: .25em;
+.nav {
+  overflow: auto;
+  margin: 1em -2.5em;
+  background-color: #5d5db1;
 }
 .nav-item {
   list-style: none;
+  text-indent: 2em;
 }
-.nav-link:hover,
+.nav-link {
+  padding: .25em .5em;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(255,255,255,.25);
+  min-width: 100%;
+  display: block;
+}
+.nav-link:hover {
+  background-color: rgba(255,255,255,.5);
+}
+
 .nav-item--current .nav-link  {
   text-decoration: none;
-  background-color: salmon;
-  color: #fff;
+  background-color: #fff;;
+  color: #d22d72;
 }
 .nav-item--current .nav-link  {
   pointer-events: none;
@@ -61,19 +101,33 @@ h2 a {
   display: block;
   padding: .25em .5em ,25em 0;
 }
-pre {
+pre,
+code {
   font: Consolas, Menlo, Monaco, monospace;
+}
+pre {
   white-space: pre-wrap;
   padding: 1em;
   margin-bottom: 1em;
-  /* background-color: #222; */
-  /* color: #fff; */
+}
+p > code {
+  white-space: nowrap;
+  color: #000;
+  margin: 0 2px;
+  padding: 0px 5px;
+  border: 1px solid #c1e4f6;
+  background-color: #ebf8ff;
+  border-radius: 3px;
 }
 p {
   max-width: 30em;
 }
 pre {
   max-width: 40em;
+}
+.sidebar ul {
+  list-style: none;
+  line-height: 2;
 }
 footer small {
   margin: 3em auto;
@@ -85,6 +139,76 @@ footer a {
   padding: .25em;
 }
 
-pre[class*="language-"] { 
+pre[class*="language-"] {
   margin: 1em 0 !important;
+}
+.intro {
+  font-size: 1.25em;
+}
+
+@media (min-width: 435px) {
+  .nav {
+    margin: 0 -2.5em -1em -2.5em;
+    padding-right: 1em;
+    -webkit-transform: translateY(-4.75em);
+    -moz-transform: translateY(-4.75em);
+    -ms-transform: translateY(-4.75em);
+    transform: translateY(-4.75em);
+  }
+  .nav-list {
+    float: right;
+  }
+  .nav-item {
+    margin-top: .25em;
+    margin-left: 2px;
+    text-indent: 0;
+  }
+  .nav-item,
+  .nav-link {
+    float: left;
+  }
+  .nav-link {
+    text-align: center;
+    min-width: 4em;
+    border: 1px solid;
+    border-color: rgba(255,255,255,.25) rgba(255,255,255,.125);
+    border-bottom-width: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .nav-link:hover {
+    border-color: rgba(255,255,255,.5) rgba(255,255,255,.25);
+  }
+  .nav-item--current .nav-link  {
+    border-color: transparent;
+  }
+}
+@media (min-width: 900px) {
+
+  .wrapper {
+    padding-right: 1em;
+  }
+  .nav {
+    margin-right:-1em;
+  }
+  .article {
+    float: left;
+    width: 72.5%;
+  }
+  .sidebar {
+    float: right;
+    width: 25%;
+  }
+  .sidebar ul {
+    font-size: 0.8125em;
+    /* margin: 1em -2em; */
+    margin-top: 1em;
+  }
+  .sidebar ul li {
+    padding: 0 .75em;
+  }
+  .sidebar ul li:nth-child(odd) {
+    /* background-color: #d6eefb; */
+    background-color: #f9e5ed;
+  }
 }

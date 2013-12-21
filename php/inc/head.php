@@ -63,7 +63,7 @@
 <body <?php if ($thisType!="") echo "class=\"$thisType\""; ?>>
  <div <?php if ($thisPage!="") echo "class=\"$thisPage wrapper\""; ?>><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
 
-  <header>
+  <header class="header">
 
     <h1><a href="<?php echo $rootUrl ?><?php echo $thisUrl ?>"><?php if ($thispageTitle!="") echo $thispageTitle ;?></a></h1>
   </header>
