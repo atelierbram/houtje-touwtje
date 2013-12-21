@@ -19,9 +19,7 @@ include 'inc/nav.php';
 <?php // ob_start('compress_article'); ?>
   <article class="article">
 
-<h2>Houtje Touwtje</h2>
-
-<p>Minimal DIY Static Site Generator that outputs PHP to static html-pages: <a href="http://atelierbram.github.io/houtje-touwtje/">see generated static site from this repo</a></p>
+<p>Minimal DIY Static Site Generator that outputs PHP to static html-pages:</p>
 
 <p>Main benefit of doing web-development like this is being able to have a <a href="http://arthur.van-dam.net/2005/06/houtje-touwtje">simple, low-fi implementation</a> of templating, here with just PHP. It can be appropriate for smaller websites with a size between three to twenty pages or so.</p>
 
