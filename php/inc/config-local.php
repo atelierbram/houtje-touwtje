@@ -1,1 +1,1 @@
-<?php $rootUrl="http://localhost/~www/houtje-touwtje/"; ?>
+<?php $rootUrl="http://localhost/~www/houtje-touwtje"; ?>
