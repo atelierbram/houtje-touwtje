@@ -3,7 +3,7 @@
 
 <?php if ($thisPage!="homepage") include 'mod-default.php';?>
 
-<?php if ($thisPage="homepage") include 'mod-resources.php';?>
+<?php if ($thisPage=="homepage") include 'mod-resources.php';?>
 
   </aside>
  <?php ob_end_flush(); function compress_aside($buffer) {
