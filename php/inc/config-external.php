@@ -1,1 +1,1 @@
-<?php $rootUrl="http://atelierbram.github.io/houtje-touwtje"; ?>
+<?php $rootUrl="https://atelierbram.github.io/houtje-touwtje"; ?>

@@ -10,7 +10,7 @@ $thisAuthor="Bram de Haan";
 $thisOrg="Atelier Bram de Haan";
 $thisLicense="Released under MIT Licence";
 // $thisLicense="All Rights Reserved";
-$thislicenseLink="http://atelierbram.mit-license.org/";
+$thislicenseLink="https://atelierbram.mit-license.org/";
 // $thislicenseLink="";
 include 'inc/config.php';
 include 'inc/head.php';

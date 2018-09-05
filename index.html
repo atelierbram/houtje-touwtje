@@ -1,7 +1,138 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>404 Not Found</title>
-</head><body>
-<h1>Not Found</h1>
-<p>The requested URL /~bram/php/houtje-touwtje/php/index.php was not found on this server.</p>
-</body></html>
+<!doctype html><!-- HTML5 Reset: https://github.com/murtaugh/HTML5-Reset Free to use --><!--[if lt IE 7 ]><html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"><![endif]--><!--[if IE 7 ]><html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"><![endif]--><!--[if IE 8 ]><html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]--><!--[if IE 9 ]><html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]--><!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]--><!-- the "no-js" class is for Modernizr or Buoy http://cferdinandi.github.io/buoy/ . --><head id="Houtje Touwtje"><meta charset="utf-8"><!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame --><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Houtje Touwtje | Houtje Touwtje></title><meta name="title" content="Houtje Touwtje" /><meta name="description" content="Minimal DIY Static Site Generator that outputs PHP to static html-pages" /><meta name="author" content="Bram de Haan" /><!-- Google will often use this as its description of your page/site. Make it good. --><meta name="google-site-verification" content="" /><!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters --><meta name="Copyright" content="Atelier Bram de Haan" /><!--  Mobile Viewport Fix http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag device-width : Occupy full width of the screen in its current orientation initial-scale = 1.0 retains dimensions instead of zooming out if page height >device height maximum-scale = 1.0 retains dimensions instead of zooming in if page width< device width --><!-- Uncomment to use; use thoughtfully!<meta name="viewport" content="width=device-width, initial-scale=1.0" />--><!-- Iconifier might be helpful for generating favicons and touch icons: http://iconifier.net --><link rel="shortcut icon" href="https://atelierbram.github.io/houtje-touwtje/assets/img/ui/favicon.ico" type="image/x-icon" /><!-- This is the traditional favicon.  - size: 16x16 or 32x32 - transparency is OK --><link rel="apple-touch-icon" href="https://atelierbram.github.io/houtje-touwtje/assets/img/ui/apple-touch-icon.png" /><!-- The is the icon for iOS's Web Clip and other things.  - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for retina display (IMHO, just go ahead and use the biggest one) - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png - Transparency is not recommended (iOS will put a black BG behind the icon) --><!-- concatenate and minify for production --><link rel="stylesheet" href="https://atelierbram.github.io/houtje-touwtje/assets/css/style.css" /><link rel="stylesheet" href="https://atelierbram.github.io/houtje-touwtje/assets/css/base16-atelierlakeside.light.css" /><!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files --><!--<script src="<?php// echo $rootUrl ?>/assets/js/prefixfree.min.js"></script>--><!-- This is an un-minified, complete version of Modernizr.
+     Before you move to production, you should generate a custom build that only has the detects you need. --><!--<script src="<?php// echo $rootUrl ?>/assets/js/modernizr-2.7.0.dev.js"></script>--><!-- Application-specific meta tags --><!-- Windows 8 --><meta name="application-name" content="" /><meta name="msapplication-TileColor" content="" /><meta name="msapplication-TileImage" content="" /><!-- Twitter --><meta name="twitter:card" content=""><meta name="twitter:site" content=""><meta name="twitter:title" content=""><meta name="twitter:description" content=""><meta name="twitter:url" content=""><!-- Facebook --><meta property="og:title" content="" /><meta property="og:description" content="" /><meta property="og:url" content="" /><meta property="og:image" content="" /><!-- http://gomakethings.com/ditching-jquery-for-vanilla-js/ --><script>if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) { document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; }</script></head><body class="index"><div class="homepage wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres --><header class="header"><h1><a href="https://atelierbram.github.io/houtje-touwtje">Houtje Touwtje</a></h1></header><nav class="main-navigation nav"><ul class="nav-list"><li id="nav-item--home" class="nav-item nav-item--current"><a href="https://atelierbram.github.io/houtje-touwtje" class="nav-link nav-link--home" data-tooltip="home">home</a></li><li class="nav-item"><a href="https://atelierbram.github.io/houtje-touwtje/lab/" class="nav-link nav-link--lab" data-tooltip="lab">lab</a></li><li class="nav-item"><a href="https://atelierbram.github.io/houtje-touwtje/about/" class="nav-link nav-link--about" data-tooltip="about">about</a></li><li class="nav-item"><a href="https://atelierbram.github.io/houtje-touwtje/contact/" class="nav-link nav-link--contact" data-tooltip="contact">contact</a></li></ul></nav>  <article class="article">
+
+<p class="intro">Minimal DIY Static Site Generator that outputs PHP to static html-pages.</p>
+
+<p>Main benefit of doing web-development like this is being able to have a <a href="http://arthur.van-dam.net/2005/06/houtje-touwtje">simple, low-fi implementation</a> of templating, here with just PHP. It can be appropriate for smaller websites with a size between three to twenty pages or so.</p>
+<p>The bash script named <code>io.sh</code>, is what makes it happen: <code>curl</code> to output static HTML-files from PHP-files, which needs to be executed from the terminal.</p>
+
+<pre class="language-bash"><code class="language-bash">
+#!/bin/bash -x
+
+# write to file
+write_to_file()
+{
+curl "http://localhost/~www/houtje-touwtje/php/index.php" &gt; "../index.html"
+curl "http://localhost/~www/houtje-touwtje/php/lab/index.php" &gt; "../lab/index.html"
+curl "http://localhost/~www/houtje-touwtje/php/about/index.php" &gt; "../about/index.html"
+curl "http://localhost/~www/houtje-touwtje/php/contact/index.php" &gt; "../contact/index.html"
+}
+
+# execute it
+write_to_file
+</code></pre>
+
+Be sure though that the shell scripts have the right permissions set. On UNIX base systems you can do this with:
+
+<pre class="language-bash"><code class="language-bash">
+chmod +x io.sh
+</code></pre>
+
+<p>or</p>
+
+<pre class="language-bash"><code class="language-bash">
+chmod 755 io.sh
+</code></pre>
+
+<h3>Configuration</h3>
+
+<p>Rename the directory names in <code>io.sh</code> to resemble the ones on your own machine. Each time one creates a new page, add that link to <code>io.sh</code>, and note that the first path to the php files should be absolute url’s.</p>
+
+<p>Also edit at least <code>config.php</code> <em>(<code>php/inc</code> folder)</em> and the other global variables on top of each page, to resemble your environment and preferences.
+Also <strong>before generating for the last time - before uploading to the remote server</strong>, change the path to the root folder in <code>config.php</code>, for otherwise the absolute paths to the assets are wrong. You can automate this a bit by executing a shell script for this, it simply renames <code>config-external.php</code> to <code>config.php</code> and likewise from <code>config-local.php</code>. You can do it like this: </p>
+
+<p>go to <code>inc</code> folder
+
+<pre class="language-bash"><code class="language-bash">
+cd php/inc
+</code></pre>
+
+<p>execute shell script to change the root directory to the external server paths:</p>
+
+
+<pre class="language-bash"><code class="language-bash">
+./external-config.sh
+</code></pre>
+
+<p>execute shell script to change the root directory back to the local development environment:</p>
+
+
+<pre class="language-bash"><code class="language-bash">
+./local-config.sh
+</code></pre>
+
+<h3>Generate</h3>
+
+<p>Now in the terminal navigate to the folder containing the php folder</p>
+
+
+<pre class="language-bash"><code class="language-bash">
+cd ~/Sites/houtje-touwtje/php
+</code></pre>
+
+type the following and hit <code>Enter</code>:</p>
+
+<pre class="language-bash"><code class="language-bash">
+./io.sh
+</code></pre>
+
+<h3>Deployment</h3>
+
+<p>You will end up in this setup with a mirrored site; one static html site in your <code>“houtje-touwtje”-root</code>-folder, one dynamic php site in the <code>php</code>-folder. Presumably the static-files are the ones that going to be (<code>FTP</code>) uploaded to the remote server. (Or with git-hub.com/gh-pages “pushed to origin”).</p>
+
+<h3>Final Thoughts</h3>
+
+<p>When just wanting to regenerate one page, an alternative way to do that in the terminal besides <code>curl</code>, is with <code>PHP CLI</code>:</p>
+
+
+<pre class="language-bash"><code class="language-bash">
+php -f about/index.php &gt; ../about/index.html
+</code></pre>
+
+<p>Two ways to repeat the previous command from the command line quickly:</p>
+
+<ol>
+<li>Use the up arrow to view the previous command and press <code>enter</code> to execute it.</li>
+<li>Type <code>!!</code> and press <code>enter</code></li>
+</ol>
+
+<p>When one doesn’t want the <a href="http://perishablepress.com/fast-effective-php-compression/">gzip-encoding that takes care of compression of the html-output</a>, (for instance when using a lot of <code>pre</code> tags) just move, or remove the <a href="http://www.php.net/manual/en/function.ob-gzhandler.php">ob_gzhandler</a>.</p>
+
+  </article>
+
+<aside class="sidebar"><h3>Resources</h3><ul><li><a href="http://blog.millermedeiros.com/static-site-generators/">Static Site Generators</a></li><li><a href="http://stackoverflow.com/questions/14637284/writing-a-file-in-bash-script">writing a file in bash script</a></li><li><a href="http://www.tldp.org/LDP/abs/html/io-redirection.html">Advanced Bash-Scripting Guide</a></li><li><a href="http://www.sitepoint.com/php-command-line-1/">php command line</a></li><li><a href="http://www.php-cli.com/php-cli-tutorial.shtml">php cli tutorial</a></li><li><a href="http://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">linux command line history</a></li><li><a href="http://davidwalsh.name/php-output-buffers">php output buffers</a></li><li><a href="http://perishablepress.com/fast-effective-php-compression/">Fast, Effective PHP Compression</a></li></ul></aside>
+ <footer class="footer"><p><small>&copy; Copyright<a href="http://atelierbramdehaan.nl">Bram de Haan</a>2012 - 2018<a href="https://atelierbram.mit-license.org/">Released under MIT Licence</a></small><small><a href="https://github.com/atelierbram/houtje-touwtje">Fork this on Github</a></small></p></footer> 
+</div><!-- ./wrapper -->
+
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.  http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script>window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>\x3C/script>")</script> -->
+
+<!-- this is where we put our custom functions -->
+<!-- don't forget to concatenate and minify if needed -->
+<!-- <script src="assets/js/functions.js"></script> -->
+
+ <script src="https://atelierbram.github.io/houtje-touwtje/assets/js/prism-bash.js"></script>
+<!-- Asynchronous google analytics; this is the official snippet.  Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
+
+<script>
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+
+<!-- <script src="/assets/js/prism-bash.js"></script> -->
+
+</body>
+</html>
